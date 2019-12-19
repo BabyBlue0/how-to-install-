@@ -1,4 +1,4 @@
-## visual C++ toolsetを使う
+# visual C++ toolsetを使う
 参考
 http://inaz2.hatenablog.com/entry/2015/07/26/175115
 ******
@@ -28,7 +28,7 @@ cd "%HOME%\work\"
 2. cmdのショートカットを作成
 コンテキストメニューの新規作成からショートカットファイルを選択  
 項目の場所の入力で，
-`%comspec% /k cl86.bat`または`%comspec% /k cl64.bat`を入力する．  
+`%comspec% /k %HOME%\cl86.bat`または`%comspec% /k %HOME%\cl64.bat`を入力する．  
 ショートカットの名前を決める(x86:cl86.exe, x64:cl64.exe)  
 ショートカットのプロパティを開き，詳細設定から，管理者で実行にチェックを入れて適応させる．  
 
