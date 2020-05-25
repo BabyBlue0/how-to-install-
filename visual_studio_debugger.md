@@ -8,7 +8,7 @@
 ## 1. Visual Studio Build Toolsのインストール  
 https://visualstudio.microsoft.com/ja/downloads/ から，「Visual Studio Build Tools」をダウンロード，インストール  
 Visual Studio Installerで，Visual C++ Build Toolsを選択．  
-右の項目で，「ビルドツールのC++/CLI サポート」，「ビルドツールのC++モジュール」，「Windows10 SDK」，「ツールのコア機能のテスト-ビルドツール」を選択しインストール  
+右の項目で，「MSVC VS2019 C++ x64/x86 ビルドツール」「ビルドツールのC++/CLI サポート」，「ビルドツールのC++モジュール」，「Windows10 SDK」，「ツールのコア機能のテスト-ビルドツール」を選択しインストール  
 https://developer.microsoft.com/ja-jp/windows/downloads/windows-10-sdk からwindowsSDKをダウンロード  
 インストーラを実行し，インストールしたいツールを選択するウィンドウで，「Debugging Tools for Windows」を選択する．  
 
@@ -22,17 +22,17 @@ https://developer.microsoft.com/ja-jp/windows/downloads/windows-10-sdk からwin
 @echo off
 
 set "PATH=C:\Program Files (x86)\Windows Kits\10\Debuggers\x86;%PATH%"
-cd "%HOME%\work\"
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"  amd64_x86
+cd "C:\work\"
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"  amd64_x86
 ```
 
 ```bat:cl64
 @rem cl64.bat
 @echo off
 
-set "PATH=C:\Program Files (x86)\Windows Kits\10\Debuggers\x64;%PATH%"
-cd "%HOME%\work\"
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"  amd64
+set "PATH=C:\Program Files (x86)\Windows Kits\10\Debuggers\x86;%PATH%"
+cd "C:\work\"
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat"  amd64
 ```
 
 ※PATHに日本語が入っているとうまく動作しないため，プロンプトと文字コードを合わせること(例：コマンドプロンプト：shift-jis，batファイル:UTF-8の場合など)  
@@ -43,7 +43,7 @@ shift-jisに統一する場合，batファイルをshift-jisで保存．
 ## 3. cmdのショートカットを作成  
 コンテキストメニューの新規作成からショートカットファイルを選択  
 項目の場所の入力で，
-`%comspec% /k %HOME%\cl86.bat`または`%comspec% /k %HOME%\cl64.bat`を入力する．  
+`%comspec% /k C:\work\cl86.bat`または`%comspec% /k C:\work\cl64.bat`を入力する．  
 ショートカットの名前を決める(例 x86:cl86.exe, x64:cl64.exe)  
 ショートカットのプロパティを開き，詳細設定から管理者で実行にチェックを入れて適応させる．  
 
